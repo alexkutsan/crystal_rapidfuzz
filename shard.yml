@@ -1,0 +1,23 @@
+name: rapidfuzz
+version: 0.1.0
+
+authors:
+  - Alexander Kutsan <alexkutsan@gmail.com>
+
+
+targets:
+  rapidfuzz_benchmarks:
+    main: src/benchmarks.cr
+
+
+development_dependencies:
+  diff:
+    github: MakeNowJust/crystal-diff
+    branch: master
+crystal: 1.6.1
+
+license: MIT
+
+
+scripts:
+  postinstall: cmake --build . --config Release -DCMAKE_BUILD_TYPE=Release 
