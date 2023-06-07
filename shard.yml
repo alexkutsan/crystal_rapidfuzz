@@ -20,4 +20,4 @@ license: MIT
 
 
 scripts:
-  postinstall: cmake --build . --config Release -DCMAKE_BUILD_TYPE=Release 
+  postinstall: cmake  -DCMAKE_BUILD_TYPE=Release . && cmake --build . --config Release 

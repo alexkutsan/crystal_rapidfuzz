@@ -26,15 +26,15 @@ def generate_random_string(size : Int) : String
 
 # puts generate_random_string(1000)
 
-string_sizes = [100, 1000, 5000, 20000, 100000]
-percent_differences = [0, 2, 5, 10, 50, 80, 99, 100]
+string_sizes = [100, 5000, 20000,100000]
+percent_differences = [0, 2, 10, 90, 100]
 string_sizes.each do |size|
   percent_differences.each do |percent|
     str1 = generate_random_string(size)
     str2 = modify_percent(str1, percent)
 
     Benchmark.ips do |x|
-        x.report("diff on string size #{size} percent diff #{percent}") { CompareString.diff(str1, str2) }
+        # x.report("diff on string size #{size} percent diff #{percent}") { CompareString.diff(str1, str2) }
         x.report("rapidfuzz on string size #{size} percent diff #{percent}") { Rapidfuzz.ratio(str1, str2) }
     end
   end  
