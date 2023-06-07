@@ -34,7 +34,7 @@ string_sizes.each do |size|
     str2 = modify_percent(str1, percent)
 
     Benchmark.ips do |x|
-        # x.report("diff on string size #{size} percent diff #{percent}") { CompareString.diff(str1, str2) }
+        x.report("diff on string size #{size} percent diff #{percent}") { CompareString.diff(str1, str2) }
         x.report("rapidfuzz on string size #{size} percent diff #{percent}") { Rapidfuzz.ratio(str1, str2) }
     end
   end  
